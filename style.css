@@ -4,6 +4,17 @@
 	box-sizing: border-box;
 }
 
+/* 【マーク復活の超重要設定】アイコンにフォント情報を強制適用する */
+.fa-brands,
+.fab,
+.fa-solid,
+.fas {
+	font-family: "Font Awesome 6 Brands", "Font Awesome 6 Free" !important;
+	font-weight: 900 !important;
+	display: inline-block !important;
+	font-style: normal !important;
+}
+
 body {
 	font-family: "Yu Gothic", sans-serif;
 	overflow-x: hidden;
@@ -34,7 +45,6 @@ header {
 	color: #E8D9A8;
 	letter-spacing: 5px;
 	z-index: 10001;
-	/* メニュー開閉時もロゴを最前面に */
 }
 
 /* PCナビ */
@@ -54,12 +64,12 @@ header {
 	color: #E8D9A8;
 }
 
-/* スマホ用ハンバーガーボタン（PCでは完全に隠す） */
+/* スマホ用ハンバーガーボタン */
 #nav-toggle {
 	display: none;
 }
 
-/* スマホ用全画面メニュー（PCでは完全に隠す） */
+/* スマホ用全画面メニュー */
 #nav-sp {
 	display: none;
 }
@@ -293,6 +303,7 @@ header {
 	cursor: pointer;
 }
 
+/* お問い合わせモーダルのSNSボタン設定 */
 .sns-select {
 	display: flex;
 	align-items: center;
@@ -307,8 +318,9 @@ header {
 	transition: .3s;
 }
 
-.sns-select i {
-	font-size: 2rem;
+/* アイコンマークを大きく見やすく調整 */
+.sns-select .fa-brands {
+	font-size: 1.8rem !important;
 }
 
 .sns-select:hover {
@@ -338,16 +350,20 @@ footer {
 	font-size: 1.1rem;
 	text-decoration: none;
 	transition: .3s;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	/* マークと文字の隙間 */
+}
+
+/* フッターのマークサイズを大きく調整 */
+.sns-links .fa-brands {
+	font-size: 1.4rem !important;
 }
 
 .sns-links a:hover {
 	color: #fff;
 	transform: translateY(-3px);
-}
-
-.sns-links i {
-	margin-right: 8px;
-	font-size: 1.4rem;
 }
 
 /******************
@@ -361,21 +377,17 @@ footer {
 		background: rgba(0, 0, 0, 0.6);
 	}
 
-	/* 【重要】スマホの時はPC用ナビを完全に隠す */
 	.nav-pc {
 		display: none !important;
 	}
 
-	/* 【重要】ハンバーガーボタンを使いやすい大きさに修正 */
 	#nav-toggle {
 		display: block;
 		background: none;
 		border: none;
 		cursor: pointer;
 		width: 32px;
-		/* 横幅を拡大 */
 		height: 26px;
-		/* 縦幅を拡大 */
 		position: relative;
 		z-index: 10001;
 	}
@@ -385,13 +397,11 @@ footer {
 		position: absolute;
 		width: 100%;
 		height: 3px;
-		/* 線を少し太くして見やすく */
 		background-color: #E8D9A8;
 		left: 0;
 		transition: transform .3s, opacity .3s;
 	}
 
-	/* 三本線の間隔を調整 */
 	#nav-toggle span:nth-child(1) {
 		top: 0;
 	}
@@ -404,7 +414,6 @@ footer {
 		top: 22px;
 	}
 
-	/* ボタンを押し、×に変形した時の線の重なりを修正 */
 	#nav-toggle.active span:nth-child(1) {
 		transform: translateY(11px) rotate(45deg);
 	}
@@ -417,7 +426,6 @@ footer {
 		transform: translateY(-11px) rotate(-45deg);
 	}
 
-	/* スマホ用全画面メニューの設定 */
 	#nav-sp {
 		display: flex;
 		position: fixed;
@@ -434,7 +442,6 @@ footer {
 		transition: opacity .3s, visibility .3s;
 	}
 
-	/* 開いた時のクラス */
 	#nav-sp.open {
 		opacity: 1;
 		visibility: visible;
@@ -465,7 +472,6 @@ footer {
 		letter-spacing: 3px;
 	}
 
-	/* メイン画像縮小用の設定 */
 	.hero {
 		height: auto;
 		padding-top: 60px;
