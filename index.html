@@ -4,17 +4,45 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>STARRYZ</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+	<!-- 【エリア拡大版：無料SEO対策】 -->
+	<title>STARRYZ（スターリイズ）｜静岡・神奈川・東京のアコースティックユニット</title>
+	<meta name="description" content="アコースティックユニット「STARRYZ（スターリイズ）」公式サイト。伊豆・沼津・三島・富士・富士宮・御殿場など静岡県内から、小田原・相模原・横浜・東京まで幅広く演奏活動を展開していく。イベントやフェスのライブ出演依頼も随時受付中！">
+	<meta name="keywords" content="STARRYZ,スターリイズ,アコースティック,バンド,ライブ出演依頼,イベント演奏,伊豆,沼津,三島,富士,富士宮,御殿場,小田原,相模原,横浜,東京">
+	<!-- 【エリア拡大版：ここまで】 -->
+
+	<link rel="stylesheet" href="https://cloudflare.com">
 	<link rel="stylesheet" href="style.css">
 </head>
+
+
 
 <body>
 
 	<header>
 		<div class="logo">STARRYZ</div>
 
-		<nav>
+		<!-- 【修正】PC用ナビゲーションにクラス名(nav-pc)を付与 -->
+		<nav class="nav-pc">
+			<ul>
+				<li><a href="#top">TOP</a></li>
+				<li><a href="#about">ABOUT</a></li>
+				<li><a href="#members">MEMBERS</a></li>
+				<li><a href="#live">LIVE</a></li>
+				<li><a href="#movie">MOVIE</a></li>
+				<li><a href="#contact">CONTACT</a></li>
+			</ul>
+		</nav>
+
+		<!-- 【追加】スマホ用ハンバーガーボタン -->
+		<button id="nav-toggle" aria-label="メニュー開閉">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+
+		<!-- 【追加】スマホ用全画面メニュー -->
+		<nav id="nav-sp">
 			<ul>
 				<li><a href="#top">TOP</a></li>
 				<li><a href="#about">ABOUT</a></li>
@@ -163,8 +191,9 @@
 
 
 
+	<!-- 【修正】ハンバーガーメニュー開閉用の記述を追加 -->
 	<script>
-
+		// --- 既存のモーダル処理 ---
 		const modal = document.getElementById('contact-modal');
 		const btn = document.getElementById('contact-btn');
 		const close = document.getElementById('close-modal');
@@ -183,6 +212,24 @@
 			}
 		};
 
+		// --- 【追加】ハンバーガーメニューの処理 ---
+		const toggleBtn = document.getElementById('nav-toggle');
+		const spNav = document.getElementById('nav-sp');
+		const spNavLinks = document.querySelectorAll('#nav-sp a');
+
+		// ボタンクリックでメニューを開閉
+		toggleBtn.addEventListener('click', () => {
+			toggleBtn.classList.toggle('active');
+			spNav.classList.toggle('open');
+		});
+
+		// スマホメニュー内のリンクを押したら自動でメニューを閉じる
+		spNavLinks.forEach(link => {
+			link.addEventListener('click', () => {
+				toggleBtn.classList.remove('active');
+				spNav.classList.remove('open');
+			});
+		});
 	</script>
 
 </body>
