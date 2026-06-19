@@ -85,7 +85,7 @@
 			<p> STARRYZは、ボーカル・ギターコーラス・カホンによる アコースティックユニット。<br> 70年代の名曲から近年のポップスまで、 時代を越えて愛される音楽を独自のアレンジで届けます。 </p>
 		</div>
 	</section>
-	<section id="members" class="section">
+	<section id="members" class="section fade-up">
 		<h2 class="animate__animated animate__fadeInUp">
 			MEMBERS
 		</h2> <!-- メイン写真 -->
@@ -116,7 +116,7 @@
 
 		</div>
 	</section>
-	<section id="live" class="section">
+	<section id="live" class="section fade-up">
 		<h2>LIVE</h2>
 		<div class="live-grid">
 			<div class="live-box"> <span class="date">2026.7.5 (土)</span>
@@ -265,6 +265,23 @@
 			} else {
 				header.classList.remove('scrolled');
 			}
+
+		});
+		const fadeItems = document.querySelectorAll('.fade-up');
+
+		window.addEventListener('scroll', () => {
+
+			fadeItems.forEach(item => {
+
+				const position = item.getBoundingClientRect().top;
+
+				if (position < window.innerHeight - 150) {
+
+					item.classList.add('show');
+
+				}
+
+			});
 
 		});
 	</script>
